@@ -1,7 +1,18 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% load comments %}
 {% block head_title %}{{ post.title }}{% endblock %}
 {% block title %}{{ post.title }}{% endblock %}
+{% get_comment_count for post as comment_count %} 
 
 {% block content %}
     {{ post.body }}
+	<br>
+<p>Комментариев: {{ comment_count }}</p>
+{% get_comment_list for post as comment_list %}
+{% render_comment_form for post %}
+{% for comment in comment_list %}
+<p>Отправитель: {{ comment.user_name }}, {{ comment.submit_date }}</p>
+<p>Комментарий: {{ comment.comment }}</p>
+-------
+{% endfor %}
 {% endblock %}
