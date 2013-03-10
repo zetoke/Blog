@@ -1,6 +1,20 @@
 body {
-	background-color: #F0F0F0;
+	background: url(/static/bg.png);
+	font-family: 'Ubuntu', sans-serif;
 }
+
 h1 {
 	text-align: center;
+}
+
+#top_url a {
+	text-decoration: none;
+}
+
+#post {
+	text-align: center;
+	background-color: #FFFFFF;
+	width: 700px;
+	margin-left: 300px;
+	border-radius: 5px;
 }

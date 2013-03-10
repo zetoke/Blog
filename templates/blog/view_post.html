@@ -2,17 +2,22 @@
 {% load comments %}
 {% block head_title %}{{ post.title }}{% endblock %}
 {% block title %}{{ post.title }}{% endblock %}
-{% get_comment_count for post as comment_count %} 
 
 {% block content %}
-    {{ post.body }}
-	<br>
-<p>Комментариев: {{ comment_count }}</p>
+<div id='post'>
+	{{ post.body }}
+</div>
+<h4>Комментарии:</h4>
 {% get_comment_list for post as comment_list %}
-{% render_comment_form for post %}
+<ul>
 {% for comment in comment_list %}
+<li>
 <p>Отправитель: {{ comment.user_name }}, {{ comment.submit_date }}</p>
 <p>Комментарий: {{ comment.comment }}</p>
+</li>
+</ul>
 -------
 {% endfor %}
+<p>Написать новый комментарий:</p>
+{% render_comment_form for post %}
 {% endblock %}

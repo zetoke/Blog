@@ -2,7 +2,7 @@
 {% block title %}Добро пожаловать в никуда.{% endblock %}
 
 {% block content %}
-    <h2>Записи</h2>
+    <h3>Записи</h3>
     {% if posts %}
         <ul>
         {% for post in posts %}
@@ -13,7 +13,7 @@
         <p>Нет записей.</p>
     {% endif %}
 
-    <h2>Категории</h2>
+    <h3>Категории</h3>
     {% if categories %}
         <ul>
         {% for category in categories %}
