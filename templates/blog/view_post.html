@@ -4,20 +4,26 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
+
 <div id='post'>
-	{{ post.body }}
+	<div id='date'>{{ post.posted }}</div>
+	<p>{{ post.body }}
 </div>
+
+
 <h4>Комментарии:</h4>
 {% get_comment_list for post as comment_list %}
 <ul>
-{% for comment in comment_list %}
-<li>
-<p>Отправитель: {{ comment.user_name }}, {{ comment.submit_date }}</p>
-<p>Комментарий: {{ comment.comment }}</p>
-</li>
+	{% for comment in comment_list %}
+		<li class='comment'>
+			<p class='author'>{{ comment.user_name }}, {{ comment.submit_date }}</p>
+			<p>{{ comment.comment }}</p>
+		</li>
+	{% endfor %}
 </ul>
--------
-{% endfor %}
-<p>Написать новый комментарий:</p>
+
+
+<h5>Написать новый комментарий:</h5>
 {% render_comment_form for post %}
+
 {% endblock %}
